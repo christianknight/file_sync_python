@@ -38,10 +38,8 @@ def main():
     for root, dirs, files in os.walk(DIR_SRC):
         for file in files:
             if file == "Thumbs.db":
-                print(os.path.join(root, file))
-                val = input("Delete file? (y/n): ")
-                if val == 'y':
-                   os.remove(os.path.join(root, file))
+                print("Deleting ", os.path.join(root, file))
+                os.remove(os.path.join(root, file))
             else:
                 file_list_src.append(file)
 
