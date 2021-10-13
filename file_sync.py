@@ -1,4 +1,4 @@
-# generate.py
+# file_sync.py
 # 10/13/21
 # Christian Knight (christianknight9@gmail.com)
 
