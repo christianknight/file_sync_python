@@ -61,5 +61,18 @@ def main():
     print("Number of files only in destination directory:", len(files_only_in_dest))
     print(str(files_only_in_dest))
 
+    # Check with the user if the files in the destination should be deleted
+    if len(files_only_in_dest) > 0:
+        val1 = input("Do you want to delete files only in destination? (y/n): ")
+        if val1 == 'y':
+            for file in files_only_in_dest:
+                os.remove(os.path.join(DIR_DEST, file))
+        elif val1 == 'n':
+            val2 = input("Ok, do you want to copy them to the source directory? (y/n): ")
+            if val2 == 'y':
+                for file in files_only_in_dest:
+                    path_file = os.path.join(DIR_DEST, file)
+                    shutil.copy2(path_file, DIR_SRC)
+
 if __name__== "__main__":
    main()
