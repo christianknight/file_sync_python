@@ -49,6 +49,7 @@ def main():
                 print(file, "not in dest! Copying...")
                 path_file = os.path.join(root, file)
                 shutil.copy2(path_file, DIR_DEST)
+                file_list_dest.append(file)
 
     # Find matches between source and destination and print list
     file_matches = set(file_list_src) & set(file_list_dest)
