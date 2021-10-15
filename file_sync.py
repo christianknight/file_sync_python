@@ -1,5 +1,5 @@
 # file_sync.py
-# 10/13/21
+# 10/15/21
 # Christian Knight (christianknight9@gmail.com)
 
 # Compares the contents of two directory addresses passed in as agruments and 
@@ -19,10 +19,8 @@ def main_process(source_dir, dest_dir):
     for root, dirs, files in os.walk(dest_dir):
         for file in files:
             if file == "Thumbs.db":
-                print(os.path.join(root, file))
-                val = input("Delete file? (y/n): ")
-                if val == 'y':
-                   os.remove(os.path.join(root, file))
+                print("Deleting ", os.path.join(root, file))
+                os.remove(os.path.join(root, file))
             else:
                 file_list_dest.append(file)
 
