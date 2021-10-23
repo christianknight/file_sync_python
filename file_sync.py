@@ -7,7 +7,7 @@
 # directory to the destination directory if they are not already present.
 # Deletes "Thumbs.db" file(s) commonly found in Windows systems if present.
 
-# Usage: python generate.py <source directory> <destination directory>
+# Usage: python file_sync.py <source directory> <destination directory>
 
 import os, shutil, sys
 
