@@ -84,7 +84,7 @@ if __name__== "__main__":
     if len(sys.argv) == 3:
         DIR_SRC = sys.argv[1]
         DIR_DEST = sys.argv[2]
-        main_proccess(DIR_SRC, DIR_DEST)
+        main_process(DIR_SRC, DIR_DEST)
     else:
         print("Incorrect usage!")
         exit()
