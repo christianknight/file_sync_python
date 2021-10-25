@@ -69,7 +69,9 @@ def main_process(source_dir, dest_dir):
             for file in files_only_in_src:
                 print(file, "not in dest! Copying...")
                 file_list_dest.append(file)
-                path_file = os.path.join(source_dir, file)
+                path_file = find_path_of_file(file, source_dir)
+                print("From:", path_file)
+                print("To:", dest_dir)
                 shutil.copy2(path_file, dest_dir)
         elif val1 == 'n':
             val2 = input("Ok, do you want to delete them instead? (y/n): ")
@@ -78,6 +80,12 @@ def main_process(source_dir, dest_dir):
                     for file in files:
                         if file in files_only_in_src:
                             os.remove(os.path.join(root, file))
+
+# Search for and return the absolute path of a file within a directory
+def find_path_of_file(name, path):
+    for root, dirs, files in os.walk(path):
+        if name in files:
+            return os.path.join(root, name)
 
 if __name__== "__main__":
     # Get source and destination directories from command line arguments
