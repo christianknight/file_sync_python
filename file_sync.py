@@ -1,5 +1,5 @@
 # file_sync.py
-# 10/15/21
+# 10/08/22
 # Christian Knight (christianknight9@gmail.com)
 
 # Compares the contents of two directory addresses passed in as agruments and 
@@ -47,7 +47,7 @@ def main_process(source_dir, dest_dir):
 
     # Check if the files only in the destination directory should be copied to the source directory or deleted
     if len(files_only_in_dest) > 0:
-        val1 = input("Do you want to delete files only in destination? (y/n): ")
+        val1 = input(f"Do you want to delete ({len(files_only_in_dest)}) files only in destination? (y/n): ")
         if val1 == 'y':
             for root, dirs, files in os.walk(dest_dir):
                 for file in files:
@@ -64,7 +64,7 @@ def main_process(source_dir, dest_dir):
 
     # Check if the files only in the source directory should be deleted or copied to the destination directory
     if len(files_only_in_src) > 0:
-        val1 = input("Do you want to copy files only in source directory to the destination directory? (y/n): ")
+        val1 = input(f"Do you want to copy ({len(files_only_in_src)}) files only in source directory to the destination directory? (y/n): ")
         if val1 == 'y':
             for file in files_only_in_src:
                 print(file, "not in dest! Copying...")
